@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random prompts minumum value. </title>
+</head>
+<body>
+  <button id="btnMin">Find Minimum</button>
+  <p id="result"></p>
+
+  <script>
+    // Per instruction - Generating 3 random numbers 
+    function max_of_3_randoms() {
+      const num1 = Math.floor(Math.random() * 201);  // Generate random integers between 0 and 200
+      const num2 = Math.floor(Math.random() * 201);  //Utilizing Math.Floor as it will round down to a whole integer
+      const num3 = Math.floor(Math.random() * 201);  //When using Math.Min instead of floor, it prompts a decimal number
+
+      return Math.min(num1, num2, num3);  // Returns minimum value ; 
+    }
+
+    // Fuction to display randomize integer ; reference W3school 
+    function displayText(text) {
+      document.getElementById("result").textContent = text; // Calling document.getElement to return result value
+    }
+
+    // Function to clear the text in the result paragraph
+    function clearText() {
+      document.getElementById("result").textContent = ""; // When reclicking the Find Minimum button , 
+                                                         //it will clear the inital results & prompt a new randomize set 
+    }
+
+    // This fuction is prompt the num1 , num2 , num3 randomize integers. 
+    function btnMin_click() {
+      const minValue = max_of_3_randoms();
+      displayText("The minimum value is: " + minValue);
+    }
+
+    //Utilizing the event listener to track user clicks , this will mainly focus on the target Find Min button
+    document.getElementById("btnMin").addEventListener("click", btnMin_click);
+  </script>
+</body>
+</html>
+
+<!--Create a web document
+
+add a <script> section in the <body>
+
+add javascript functions :
+1.  write a function. call it      max_of_3_randoms()
+                                              {
+
+
+                                              }
+
+this function is to generate 3 integer numbers. Then using Math.min method, return smallest value
+
+also you would need two functions: displayText and clearText similar to the ones done in class
+
+ 
+
+inside the body add a button id=btnMin
+its onclick should call a method  "btnMin_click  that calls the Math_min function to get the min value then displays it.-->
